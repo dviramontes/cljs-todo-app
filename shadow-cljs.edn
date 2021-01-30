@@ -6,6 +6,10 @@
 
  :dependencies
  []
-
+ 
+ :dev-http {3000 "public"}
+ 
  :builds
- {}}
+ {:frontend
+  {:target :browser
+   :modules {:main {:init-fn todo.app.core/init}}}}}

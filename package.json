@@ -4,5 +4,10 @@
   "private": true,
   "devDependencies": {
     "shadow-cljs": "2.11.15"
+  },
+  "scripts": {
+    "repl": "rlwrap -- npx shadow-cljs browser-repl",
+    "dev": "npx shadow-cljs watch frontend",
+    "lint": "clj-kondo --lint src"
   }
 }
