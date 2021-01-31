@@ -7,11 +7,12 @@
  :dependencies
  [[reagent "1.0.0"]
   [binaryage/devtools "1.0.2"]]
- 
+
  :dev-http {3000 "public"}
 
- :nrepl {:port 55555}
- 
+ :nrepl {:port 55555
+         :init-ns todo.app.core}
+
  :builds
  {:frontend
   {:target :browser
