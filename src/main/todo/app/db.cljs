@@ -10,7 +10,7 @@
   (r/atom (sorted-map)))
 
 (def counter
-  (r/atom 0))
+  (r/atom -1))
 
 (defn seed []
   (doseq [todo init-todos
