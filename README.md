@@ -26,7 +26,9 @@
 
 ### Development
 
-##### TODO: add dev cmds
+- `npm run lint` # uses clj-kondo
+- `npm run dev` # runs development server
+- `npm run repl` # runs browser-repl
 
 ### Production
 

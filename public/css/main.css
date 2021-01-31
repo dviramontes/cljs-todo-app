@@ -1,0 +1,27 @@
+:root {
+    --padding: 1rem 3rem;
+    --margin: 1rem;
+    --border: 1px solid black;
+}
+
+body {
+  font-size: 16px;
+}
+
+#todo-wrapper {
+    border: var(--border);
+    padding: var(--padding);
+    margin: var(--margin);
+}
+
+#chart-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: var(--margin);
+}
+
+.chart {
+    border: var(--border);
+    padding: var(--padding);
+    justify-content: space-between;
+}
