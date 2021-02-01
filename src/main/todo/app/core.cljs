@@ -70,32 +70,35 @@
           :on-save #(save id %)
           :on-stop #(reset! editing false)}])])))
 
-(defn todo-wrapper []
-  (let [todos (vals @db/todos)
-        _ (js/console.log todos)]
-   [:div#todo-wrapper
-    [:header
-     [:h1 "To-Do Items:"]]
-    [:div#todos
-     [todo-input {:placeholder "enter a new todo"
-                  :on-save add}]
-     (for [todo todos
-           :let [id (:id todo)]]
-          ^{:key (gensym id)}
-          [todo-item todo])]]))
+(defn todo-wrapper [todos]
+  [:div#todo-wrapper
+   [:header
+    [:h1 "To-Do Items:"]]
+   [:div#todos
+    [todo-input {:placeholder "enter a new todo"
+                 :on-save add}]
+    (for [todo todos
+          :let [id (:id todo)]]
+         ^{:key (gensym id)}
+         [todo-item todo])]])
 
-(defn chart-wrapper []
+(defn chart-wrapper [{:keys [wc]}]
   [:div#chart-wrapper
    [:div.chart
     [:h1 "Complete vs. incomplete tasks"]]
    [:div.chart
-    [:h1 "Word count of tasks"]]
+    [:h1 "Word count of tasks"]
+    [:pre (pr-str wc)]]
    [:div]])
 
 (defn root []
-  [:div#root
-   [chart-wrapper]
-   [todo-wrapper]])
+  (let [todos (vals @db/todos)
+        words (map :title todos)
+        wc (frequencies words)]
+   (js/console.log wc)
+   [:div#root
+    [chart-wrapper {:wc wc}]
+    [todo-wrapper todos]]))
 
 (defn ^:dev/after-load mount []
   (rdom/render
