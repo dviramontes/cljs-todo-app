@@ -2,7 +2,8 @@
   (:require [reagent.dom :as rdom]
             [reagent.core :as r]
             [clojure.string :as str]
-            [todo.app.db :as db]))
+            [todo.app.db :as db]
+            [todo.app.chart :refer [bar-chart]]))
 
 (defn toggle [id]
   (swap! db/todos update-in [id :done] not))
@@ -87,9 +88,8 @@
    [:div.chart
     [:h1 "Complete vs. incomplete tasks"]]
    [:div.chart
-    [:h1 "Word count of tasks"]
-    [:pre (pr-str wc)]]
-   [:div]])
+    [bar-chart wc]
+    [:pre (pr-str wc)]]])
 
 (defn root []
   (let [todos (vals @db/todos)

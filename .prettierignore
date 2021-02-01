@@ -1,0 +1,5 @@
+.clj-kondo
+.idea
+.lsp
+.shadow-cljs
+public/js

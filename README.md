@@ -17,6 +17,7 @@
 - [Java SDK](https://adoptopenjdk.net/) (Version 8+, Hotspot)
 
 #### Developement tools
+
 - [rlwrap](https://github.com/hanslub42/rlwrap) `brew install rlwrap`
 - [clj-kondo](https://github.com/clj-kondo/clj-kondo/blob/master/doc/install.md) `brew install borkdude/brew/clj-kondo`
 
@@ -29,6 +30,7 @@
 - `npm run lint` # uses clj-kondo
 - `npm run dev` # runs development server
 - `npm run repl` # runs browser-repl
+- `npm run format` # runs prettier formatter
 
 ### Production
 
