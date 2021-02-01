@@ -3,7 +3,7 @@
             [reagent.core :as r]
             [clojure.string :as str]
             [todo.app.db :as db]
-            [todo.app.chart :refer [bar-chart]]))
+            [todo.app.chart :refer [bar-chart pie-chart]]))
 
 (defn toggle [id]
   (swap! db/todos update-in [id :done] not))
@@ -86,7 +86,7 @@
 (defn chart-wrapper [{:keys [wc]}]
   [:div#chart-wrapper
    [:div.chart
-    [:h1 "Complete vs. incomplete tasks"]]
+    [pie-chart]]
    [:div.chart
     [bar-chart wc]
     [:pre (pr-str wc)]]])

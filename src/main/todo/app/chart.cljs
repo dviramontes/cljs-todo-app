@@ -26,3 +26,12 @@
                 text-y (+ 9.5 y)]]
          ^{:key (gensym w)}
          [bar w c y text-x text-y])]])
+
+(defn pie-chart []
+  [:figure
+   [:figcaption "Complete vs. incomplete tasks"]
+   [:svg.pie-svg
+    {:width 150
+     :height 150}
+    [:circle.pie
+     {:r 25 :cx 50 :cy 50}]]])
