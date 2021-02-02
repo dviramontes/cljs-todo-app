@@ -1,5 +1,14 @@
 (ns todo.app.chart)
 
+(defn circumference [r]
+  (* 2 js/Math.PI r))
+
+(defn calc-percentage [num total radius]
+  (let [percent (* 100 (/ num total))
+        circ (circumference radius)
+        calc (/ (* percent circ) 100)]
+   (str "calc(" calc ")" " " circ)))
+
 (defn bar [word _count y text-x text-y]
   (let [width (* _count 10)
         height 19]
@@ -28,13 +37,26 @@
          [bar w c y text-x text-y])]])
 
 (defn pie-chart [todos]
-  (let [total (count todos)
-        complete-count (count (filter true? todos))
-        incomplete-count (count (filter false? todos))]
+  (let [r 5
+        total (count todos)
+        complete-count (count (filter true? todos))]
     [:figure
      [:figcaption "Complete vs. incomplete tasks"]
-     [:svg.pie-svg
-      {:width 150
-       :height 150}
-      [:circle.pie
-       {:r 25 :cx 50 :cy 50}]]]))
+     [:svg#pie
+      {:height 20
+       :width 20
+       :viewBox "0 0 20 20"}
+      [:circle
+       {:r 10
+        :cx 10
+        :cy 10
+        :fill "tomato"}]
+      [:circle
+       {:r r
+        :cx 10
+        :cy 10
+        :fill "transparent"
+        :stroke "blue"
+        :strokeWidth 10
+        :strokeDasharray
+        (calc-percentage complete-count total r)}]]]))

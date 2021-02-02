@@ -23,7 +23,7 @@
 
 ### Setup
 
-##### TODO: add steps
+1. `npm install`
 
 ### Development
 

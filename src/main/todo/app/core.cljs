@@ -20,7 +20,7 @@
 
 (defn handle-save [val on-save after-save]
   (let [val (-> val str str/trim)]
-       (if-not (empty? val)
+       (when-not (empty? val)
          (on-save val))
        (after-save)))
 

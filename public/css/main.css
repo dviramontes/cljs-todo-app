@@ -4,11 +4,20 @@
   --border: 1px solid black;
 }
 
+body,
+html {
+  height: 100%;
+}
+
 html {
   font-size: 16px;
 }
 
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -34,7 +43,7 @@ body {
 .bar {
   fill: #aaa;
   height: 1.75rem;
-  transition: fill 0.2s ease;
+  transition: fill 0.3s ease;
   cursor: pointer;
   font-family: Helvetica, sans-serif;
 }
@@ -63,18 +72,12 @@ figcaption {
   margin-bottom: 1.25rem;
 }
 
-circle {
-  fill: #ddd;
-  stroke: blue;
-  stroke-width: 50;
-  stroke-dasharray: 0 158;
-  transition: stroke-dasharray 0.3s ease;
+#pie {
+  height: 200px;
+  width: 200px;
 }
 
-.pie-svg {
-  margin: 0 auto;
-  transform: rotate(-90deg);
-  background: #ddd;
-  border-radius: 50%;
-  display: block;
+circle {
+  transform: rotate(-90deg) translate(-20px);
+  transition: stroke-dasharray 0.3s ease;
 }
