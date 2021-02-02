@@ -81,3 +81,12 @@ circle {
   transform: rotate(-90deg) translate(-20px);
   transition: stroke-dasharray 0.3s ease;
 }
+
+/* color classes */
+.tomato {
+  color: tomato;
+}
+
+.blue {
+  color: blue;
+}

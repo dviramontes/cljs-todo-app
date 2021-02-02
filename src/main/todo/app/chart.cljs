@@ -41,7 +41,11 @@
         total (count todos)
         complete-count (count (filter true? todos))]
     [:figure
-     [:figcaption "Complete vs. incomplete tasks"]
+     [:figcaption
+      [:span.blue "Complete"]
+      [:span " vs. "]
+      [:span.tomato "incomplete"]
+      [:span " tasks"]]
      [:svg#pie
       {:height 20
        :width 20
