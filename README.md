@@ -2,6 +2,8 @@
 
 > TODO: add project description
 
+[View it here](https://dviramontes.github.io/cljs-todo-app/)
+
 ### Project Layout
 
 ```
@@ -31,7 +33,13 @@
 - `npm run dev` # runs development server
 - `npm run repl` # runs browser-repl
 - `npm run format` # runs prettier formatter
+- `npm run build` # builds production build
+- `npm run clean` # deletes public/js dir
 
 ### Production
 
-##### TODO: add production bundle steps
+- `npm run deploy` # runs clean, build, then deploys site to github pages 
+
+### Credits
+- [I learned about making svg bar charts via this codepen tutorial (<3 codepen) by Robin Rendle](https://css-tricks.com/how-to-make-charts-with-svg/)
+- [I learned about svg making pie charts via this super great tutorial by Kasey Bonifacio](https://seesparkbox.com/foundry/how_to_code_an_SVG_pie_chart)
