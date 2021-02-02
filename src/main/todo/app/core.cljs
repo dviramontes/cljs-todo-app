@@ -83,21 +83,22 @@
          ^{:key (gensym id)}
          [todo-item todo])]])
 
-(defn chart-wrapper [{:keys [wc]}]
+(defn chart-wrapper [{:keys [wc done]}]
   [:div#chart-wrapper
    [:div.chart
-    [pie-chart]]
+    [pie-chart done]]
    [:div.chart
-    [bar-chart wc]
-    [:pre (pr-str wc)]]])
+    [bar-chart wc]]])
 
 (defn root []
   (let [todos (vals @db/todos)
         words (map :title todos)
+        done (map :done todos)
         wc (frequencies words)]
-   (js/console.log wc)
    [:div#root
-    [chart-wrapper {:wc wc}]
+    [chart-wrapper
+     {:wc wc
+      :done done}]
     [todo-wrapper todos]]))
 
 (defn ^:dev/after-load mount []

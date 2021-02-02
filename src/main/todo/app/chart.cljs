@@ -27,11 +27,14 @@
          ^{:key (gensym w)}
          [bar w c y text-x text-y])]])
 
-(defn pie-chart []
-  [:figure
-   [:figcaption "Complete vs. incomplete tasks"]
-   [:svg.pie-svg
-    {:width 150
-     :height 150}
-    [:circle.pie
-     {:r 25 :cx 50 :cy 50}]]])
+(defn pie-chart [todos]
+  (let [total (count todos)
+        complete-count (count (filter true? todos))
+        incomplete-count (count (filter false? todos))]
+    [:figure
+     [:figcaption "Complete vs. incomplete tasks"]
+     [:svg.pie-svg
+      {:width 150
+       :height 150}
+      [:circle.pie
+       {:r 25 :cx 50 :cy 50}]]]))
