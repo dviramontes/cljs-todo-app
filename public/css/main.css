@@ -29,6 +29,36 @@ body {
   margin: var(--margin);
 }
 
+#todo-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+.todo-input {
+  width: 100%;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 0.75rem;
+}
+
+.add-button {
+  background: white;
+  margin: 1rem;
+  padding: 1rem;
+  color: royalblue;
+  border: 1px solid royalblue;
+}
+
+.add-button span {
+  text-align: left;
+}
+
 #chart-wrapper {
   display: flex;
   flex-direction: row;

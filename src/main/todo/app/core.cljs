@@ -3,6 +3,7 @@
             [reagent.core :as r]
             [clojure.string :as str]
             [todo.app.db :as db]
+            [todo.app.icons :as icons]
             [todo.app.chart :refer [bar-chart pie-chart]]))
 
 (defn toggle [id]
@@ -48,7 +49,7 @@
 
 (def todo-edit
   (with-meta todo-input
-             {:component-did-mount #(.focus (rdom/dom-node %))}))
+     {:component-did-mount #(.focus (rdom/dom-node %))}))
 
 (defn todo-item []
   (let [editing (r/atom false)]
@@ -71,17 +72,26 @@
           :on-save #(save id %)
           :on-stop #(reset! editing false)}])])))
 
-(defn todo-wrapper [todos]
-  [:div#todo-wrapper
-   [:header
-    [:h1 "To-Do Items:"]]
-   [:div#todos
-    [todo-input {:placeholder "enter a new todo"
-                 :on-save add}]
-    (for [todo todos
-          :let [id (:id todo)]]
-         ^{:key (gensym id)}
-         [todo-item todo])]])
+(defn todo-wrapper []
+  (let [t (r/atom false)]
+   (fn [todos]
+     [:div#todo-wrapper
+      [:header#todo-header
+       [:h1 "To-Do Items:"]
+       [:button.add-button
+        {:on-click #(swap! t not)}
+        [icons/plus]
+        [:span "Add Item"]]]
+      [:div#todos
+       (when @t
+         [todo-input
+          {:placeholder "enter a new todo"
+           :on-save add
+           :class "todo-input"}])
+       (for [todo todos
+             :let [id (:id todo)]]
+            ^{:key (gensym id)}
+            [todo-item todo])]])))
 
 (defn chart-wrapper [{:keys [wc done]}]
   [:div#chart-wrapper
