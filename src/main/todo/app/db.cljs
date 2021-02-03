@@ -10,7 +10,7 @@
   (r/atom (sorted-map)))
 
 (def counter
-  "we set counter to -1 so that the next time we can inc on it
+  "we set counter to -1 so that the next time we call inc on it
   its value is 0 which corresponds with @db/todos"
   (r/atom -1))
 

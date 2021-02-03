@@ -38,8 +38,9 @@
 
 ### Production
 
-- `npm run deploy` # runs clean, build, then deploys site to github pages 
+- `npm run deploy` # runs clean, build, then deploys site to github pages
 
 ### Credits
+
 - [I learned about making svg bar charts via this codepen tutorial (<3 codepen) by Robin Rendle](https://css-tricks.com/how-to-make-charts-with-svg/)
 - [I learned about making svg pie charts via this super great tutorial by Kasey Bonifacio](https://seesparkbox.com/foundry/how_to_code_an_SVG_pie_chart)

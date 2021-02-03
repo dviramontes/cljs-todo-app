@@ -1,5 +1,5 @@
 :root {
-  --padding: 1rem 3rem;
+  --padding: 2rem 3rem;
   --margin: 1rem;
   --border: 1px solid black;
 }
@@ -14,11 +14,13 @@ html {
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   font-family: "Open Sans", sans-serif;
+}
+
+#root {
+  padding: 0.5rem;
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 #todo-wrapper {
@@ -30,7 +32,6 @@ body {
 #chart-wrapper {
   display: flex;
   flex-direction: row;
-  margin: var(--margin);
 }
 
 .chart {
@@ -38,6 +39,8 @@ body {
   padding: var(--padding);
   justify-content: space-between;
   overflow: scroll;
+  margin: var(--margin);
+  flex: 1;
 }
 
 .bar {
@@ -66,6 +69,12 @@ body {
   fill: blue;
 }
 
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 figcaption {
   font-weight: bold;
   color: #000;
@@ -80,6 +89,16 @@ figcaption {
 circle {
   transform: rotate(-90deg) translate(-20px);
   transition: stroke-dasharray 0.3s ease;
+}
+
+@media only screen and (max-width: 1024px) {
+  #root {
+    max-width: 100%;
+  }
+
+  #chart-wrapper {
+    flex-direction: column;
+  }
 }
 
 /* color classes */
