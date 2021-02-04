@@ -2,6 +2,7 @@
   --padding: 2rem 3rem;
   --margin: 1rem;
   --border: 1px solid black;
+  --purple: #7321ce;
 }
 
 body,
@@ -14,6 +15,7 @@ html {
 }
 
 body {
+  background: ghostwhite;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -40,19 +42,38 @@ body {
   width: 100%;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 1px solid var(--purple);
   box-shadow: inset 0 1px 3px #ddd;
   border-radius: 4px;
   box-sizing: border-box;
   padding: 0.75rem;
 }
 
+.todo-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 1rem;
+  border-bottom: 1px solid black;
+}
+
+.todo-item label span {
+  font-size: 1.25rem;
+}
+
 .add-button {
-  background: white;
+  background: ghostwhite;
   margin: 1rem;
   padding: 1rem;
   color: royalblue;
   border: 1px solid royalblue;
+}
+
+.delete-button {
+  color: tomato;
+  cursor: pointer;
+  font-size: 2rem;
 }
 
 .add-button span {
@@ -85,15 +106,11 @@ body {
   fill: #555;
 }
 
-.chart:hover .bar,
-.chart:focus .bar {
-  fill: #aaa;
-}
-
 .bar:hover,
 .bar:focus {
   fill: blue !important;
 }
+
 .bar:hover text,
 .bar:focus text {
   fill: blue;
@@ -111,7 +128,7 @@ figcaption {
   margin-bottom: 1.25rem;
 }
 
-#pie {
+#pie-chart {
   height: 200px;
   width: 200px;
 }

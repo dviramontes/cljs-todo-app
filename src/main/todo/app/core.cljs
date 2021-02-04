@@ -3,7 +3,6 @@
             [reagent.core :as r]
             [clojure.string :as str]
             [todo.app.db :as db]
-            [todo.app.icons :as icons]
             [todo.app.chart :refer [bar-chart pie-chart]]))
 
 (defn toggle [id]
@@ -54,17 +53,18 @@
 (defn todo-item []
   (let [editing (r/atom false)]
    (fn [{:keys [done title id]}]
-     [:li
-      [:input
-       {:type "checkbox"
-        :checked done
-        :on-change #(toggle id)}]
+     [:li.todo-item
       [:label
-       {:on-double-click #(reset! editing true)} title]
-      [:button
-       {:type "button"
+       {:on-double-click #(reset! editing true)}
+       [:input
+        {:type "checkbox"
+         :checked done
+         :on-change #(toggle id)}]
+       [:span title]]
+      [:span
+       {:class "btn delete-button"
         :on-click #(delete id)}
-       "[x]"]
+       [:i.fa.fa-trash]]
       (when @editing
         [todo-edit
          {:class "edit"
@@ -78,10 +78,11 @@
      [:div#todo-wrapper
       [:header#todo-header
        [:h1 "To-Do Items:"]
-       [:button.add-button
-        {:on-click #(swap! t not)}
-        [icons/plus]
-        [:span "Add Item"]]]
+       [:button
+        {:class "btn add-button"
+         :type "button"
+         :on-click #(swap! t not)}
+        [:i.fa.fa-plus-circle] " Add Item"]]
       [:div#todos
        (when @t
          [todo-input

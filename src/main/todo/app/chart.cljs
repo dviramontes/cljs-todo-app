@@ -19,22 +19,17 @@
 (defn bar-chart [wc]
   [:figure
    [:figcaption "Word count of tasks"]
-   [:svg
-    {:version 1.1
-     :xmlns "http://www.w3.org/2000/svg"
-     :xmlnsXlink "http://www.w3.org/1999/xlink"
-     :width 300
-     :height 150
-     :aria-labelledby "title"
-     :role "img"}
+   [:svg#bar-chart
     [:title#title "A bar chart shows a word count of tasks"]
-    (for [[i wc] (map-indexed vector wc)
-          :let [[w c] wc
-                y (* 20 i)
-                text-x (+ 5 (* c 10))
-                text-y (+ 9.5 y)]]
-         ^{:key (gensym w)}
-         [bar w c y text-x text-y])]])
+    (let [wc (sort-by val > wc)
+          wc (map-indexed vector wc)]
+     (for [[i wc] wc
+           :let [[w c] wc
+                 y (* 20 i)
+                 text-x (+ 5 (* c 10))
+                 text-y (+ 9.5 y)]]
+          ^{:key (gensym w)}
+          [bar w c y text-x text-y]))]])
 
 (defn pie-chart [todos]
   (let [r 5
@@ -46,10 +41,8 @@
       [:span " vs. "]
       [:span.tomato "incomplete"]
       [:span " tasks"]]
-     [:svg#pie
-      {:height 20
-       :width 20
-       :viewBox "0 0 20 20"}
+     [:svg#pie-chart
+      {:viewBox "0 0 20 20"}
       [:circle
        {:r 10
         :cx 10

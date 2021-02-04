@@ -25,7 +25,7 @@
 
 ### Setup
 
-1. `npm install`
+- `npm install`
 
 ### Development
 
