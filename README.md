@@ -8,8 +8,15 @@
 
 ```
 {root}
-
-...
+public                     # static and generated assets
+├── css
+├── index.html
+└── js
+src
+└── main
+    └── todo
+        └── app
+            ├── core.cljs  # react main entry point
 ```
 
 ### Requirements
