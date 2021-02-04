@@ -89,7 +89,7 @@ body {
   border: var(--border);
   padding: var(--padding);
   justify-content: space-between;
-  overflow: scroll;
+  overflow: auto;
   margin: var(--margin);
   flex: 1;
 }
@@ -141,6 +141,7 @@ circle {
 @media only screen and (max-width: 1024px) {
   #root {
     max-width: 100%;
+    padding: 0;
   }
 
   #chart-wrapper {
@@ -155,4 +156,40 @@ circle {
 
 .blue {
   color: blue;
+}
+
+input[type="checkbox"] {
+  width: 17px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 17px;
+  border: 1px solid gray;
+  border-radius: 15%;
+}
+
+input[type="checkbox"]:checked {
+  background-color: blue;
+  border: 1px solid blue;
+}
+
+input[type="checkbox"]:checked:after {
+  margin-left: 4px;
+  margin-top: -1px;
+  wixdth: 4px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  content: "";
+  display: inline-block;
+}
+input[type="checkbox"]:after {
+  margin-left: 4px;
+  margin-top: -1px;
+  width: 4px;
+  height: 12px;
+  border: 0 solid white;
+  transform: rotate(45deg);
+  content: "";
+  display: inline-block;
 }
